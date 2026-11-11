@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kareverse",
+  "version": "1.0.0",
+  "description": "Elder care at home in Bangalore, India: look up Kareverse services and prices, the Care Plan, service areas and care guides, and ask the Kareverse team to call a family back.",
+  "author": {
+    "name": "Kareverse",
+    "email": "connect@kareverse.com",
+    "url": "https://www.kareverse.com"
+  },
+  "homepage": "https://www.kareverse.com/agents",
+  "repository": "https://github.com/digitalmanager-commits/kareverse-mcp",
+  "license": "MIT",
+  "keywords": ["kareverse", "mcp", "elder-care", "home-care", "bangalore", "india", "nri"],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {
+        "kareverse": { "trust": "untrusted", "timeout": 60 }
+      }
+    }
+  }
+}
