@@ -21,7 +21,7 @@ The `kareverse` MCP server (https://www.kareverse.com/mcp) gives you these tools
 | `check_service_area` | Check a Bangalore locality or pincode, or list the areas. |
 | `search_guides` | Find Kareverse's guides for families (costs, caretakers, dementia, falls, NRI care). |
 | `get_contact_info` | Phone/WhatsApp, email, hours and address. |
-| `submit_enquiry` | Ask the Kareverse team to call or WhatsApp the family back. |
+| `submit_enquiry` | Ask the Kareverse team to contact the family. They reply once the person confirms on WhatsApp. |
 
 ## How to help well
 
@@ -36,7 +36,13 @@ The `kareverse` MCP server (https://www.kareverse.com/mcp) gives you these tools
 
 - Ask the person whether they want Kareverse to contact them, and get a clear yes. Set `consent` to `true` only then.
 - Use the name and phone number they give you. Never guess or invent contact details, and do not reuse numbers from elsewhere in the conversation without asking.
-- Include a short summary of the need in their words (`service_interest`, `parent_area`, `message`).
+- Include a short summary of the need in their words (`service_interest`, `parent_area`, `message`). Leave out detailed medical information.
+
+After it succeeds, the result has a reference (`AG-XXXXXX`) and a `confirm_url`. Kareverse does not contact unconfirmed numbers, so:
+
+- Give the person the `confirm_url` and ask them to open it and send the pre-filled WhatsApp message from their own phone. The team replies after that (Mon–Sat, 8 AM to 8 PM IST).
+- Do not tell them Kareverse will call them before they have sent it.
+- If the tool says it is temporarily unavailable, give them WhatsApp +91 90355 54540 or www.kareverse.com/contact instead.
 
 ## Limits
 

@@ -17,7 +17,7 @@
 | `check_service_area` | Check a Bangalore locality or pincode, or list the service areas | No |
 | `search_guides` | Search Kareverse's published guides for families | No |
 | `get_contact_info` | Phone/WhatsApp, email, hours, address and service categories | No |
-| `submit_enquiry` | Sends a callback request (name, phone, need) to the Kareverse team | **Yes**, creates an enquiry |
+| `submit_enquiry` | Sends a callback request (name, phone, need) to the Kareverse team. The person confirms it on WhatsApp before anyone contacts them | **Yes**, creates an unconfirmed enquiry |
 
 Prices are in Indian rupees and match www.kareverse.com, with a `prices_as_of` month in each answer.
 
@@ -48,9 +48,14 @@ Claude Code: `claude mcp add --transport http kareverse https://www.kareverse.co
 
 ## Data and privacy
 
-- **Network:** every tool call goes over HTTPS to `www.kareverse.com`, operated by Kareverse (Phanes Technology Solutions Pvt Ltd). Nothing else is contacted.
+- **Network:** every tool call goes over HTTPS to `www.kareverse.com`, operated by Kareverse (Phanes Technology Solutions Pvt Ltd). This package itself contacts no other server. What happens to an enquiry on Kareverse's side is described below.
 - **Read-only tools** send only the search words and ids you pass in.
-- **`submit_enquiry`** sends the name, phone number and any optional details (email, service, area, message) to Kareverse, where the team uses them to contact the person about this enquiry, as described in the [privacy policy](https://www.kareverse.com/privacy). The tool requires `consent: true`, which the agent should set only after the person agrees to be contacted. Enquiries are rate-limited per connection.
+- **`submit_enquiry`** sends the name, phone number and any optional details (email, service, area, message) to Kareverse. The tool requires `consent: true`, which the agent should set only after the person agrees to be contacted.
+  - **Unconfirmed until the person confirms.** Anyone can type a number, so Kareverse does not call or message it. The tool returns a reference (`AG-XXXXXX`) and a WhatsApp link (`confirm_url`). The team contacts the person only after they send that WhatsApp message from their own number.
+  - **Where it goes on Kareverse's side:** Kareverse's database, an email to the Kareverse team, and Kareverse's lead tracker and CRM, all marked as unconfirmed. It is not shared with anyone else or used for marketing.
+  - **Retention:** unconfirmed enquiries are deleted from Kareverse's database after 30 days; confirmed ones after 90 days.
+  - **Limits:** 3 enquiries an hour per connection, 1 a day per phone number, and an overall hourly cap. Kareverse can pause the tool at any time; it then replies that it is temporarily unavailable.
+  - See the [privacy policy](https://www.kareverse.com/privacy).
 - **Credentials:** none. No API key, token or secret is needed or stored.
 - **Telemetry:** none in this package. The server keeps standard web server logs.
 - **Code in this package:** configuration and Markdown only. No Python, binaries, dependencies or self-update code. The tool set is served by the remote server at runtime.
