@@ -52,8 +52,8 @@ Claude Code: `claude mcp add --transport http kareverse https://www.kareverse.co
 - **Read-only tools** send only the search words and ids you pass in.
 - **`submit_enquiry`** sends the name, phone number and any optional details (email, service, area, message) to Kareverse. The tool requires `consent: true`, which the agent should set only after the person agrees to be contacted.
   - **Unconfirmed until the person confirms.** Anyone can type a number, so Kareverse does not call or message it. The tool returns a reference (`AG-XXXXXX`) and a WhatsApp link (`confirm_url`). The team contacts the person only after they send that WhatsApp message from their own number.
-  - **Where it goes on Kareverse's side:** Kareverse's database, an email to the Kareverse team, and Kareverse's lead tracker and CRM, all marked as unconfirmed. It is not shared with anyone else or used for marketing.
-  - **Retention:** unconfirmed enquiries are deleted from Kareverse's database after 30 days; confirmed ones after 90 days.
+  - **Where it goes on Kareverse's side:** Kareverse's database (Supabase), an email to the Kareverse team (Resend and Google Workspace), Kareverse's lead tracker (Google Sheets) and its CRM (DelveAnt), all marked as unconfirmed. These companies process it only to provide their service to Kareverse. It is not sold or used for marketing. The [privacy policy](https://www.kareverse.com/privacy) lists them and how long each copy is kept.
+  - **Retention:** unconfirmed enquiries are deleted from Kareverse's database after 30 days; confirmed ones after 90 days. The copies in the lead tracker, CRM and email follow the privacy policy.
   - **Limits:** 3 enquiries an hour per connection, 1 a day per phone number, and an overall hourly cap. Kareverse can pause the tool at any time; it then replies that it is temporarily unavailable.
   - See the [privacy policy](https://www.kareverse.com/privacy).
 - **Credentials:** none. No API key, token or secret is needed or stored.

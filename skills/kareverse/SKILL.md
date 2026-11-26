@@ -34,7 +34,8 @@ The `kareverse` MCP server (https://www.kareverse.com/mcp) gives you these tools
 
 `submit_enquiry` contacts a real person. Before calling it:
 
-- Ask the person whether they want Kareverse to contact them, and get a clear yes. Set `consent` to `true` only then.
+- Show them Kareverse's privacy notice (https://www.kareverse.com/privacy) and tell them in one line what happens: their name, number and message go to the Kareverse team by email and into Kareverse's lead tracker and CRM, marked unconfirmed, and are used only to answer this enquiry.
+- Then ask whether they want Kareverse to contact them, and get a clear yes. Set `consent` to `true` only then.
 - Use the name and phone number they give you. Never guess or invent contact details, and do not reuse numbers from elsewhere in the conversation without asking.
 - Include a short summary of the need in their words (`service_interest`, `parent_area`, `message`). Leave out detailed medical information.
 
