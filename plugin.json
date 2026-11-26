@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kareverse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Elder care at home in Bangalore, India: look up Kareverse services and prices, the Care Plan, service areas and care guides, and ask the Kareverse team to call a family back.",
   "author": {
     "name": "Kareverse",
